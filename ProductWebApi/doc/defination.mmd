@@ -1,0 +1,49 @@
+---
+title: CodeQL Code Scanning Definition & Overview
+---
+flowchart TD
+    %% Main Sequential Flow - Top to Bottom
+    A["🔍 Code Scanning Overview<br/>GitHub's Security Analysis Tool"]
+    
+    A --> B["📊 Step 1: Code Analysis<br/>Uses CodeQL to analyze<br/>code in GitHub repositories"]
+    
+    B --> C["🛡️ Step 2: Vulnerability Detection<br/>Finds security vulnerabilities<br/>and coding errors"]
+    
+    C --> D["🚨 Step 3: Alert Generation<br/>Alerts shown in the Security tab<br/>when issues are found"]
+    
+    D --> E["✅ Step 4: Auto Resolution<br/>Alerts close automatically<br/>after fixes are pushed"]
+    
+    E --> F["⚙️ Step 5: Setup Options<br/>Choose your configuration method"]
+    
+    F --> G1["🚀 Option A: Default Setup<br/>Quick configuration using<br/>GitHub Actions"]
+    F --> G2["🔧 Option B: Advanced Setup<br/>Custom workflow using<br/>github/codeql-action"]
+    F --> G3["🔄 Option C: External CI<br/>Run CodeQL CLI and<br/>upload results"]
+    
+    G1 --> H["🧠 Step 6: How CodeQL Works<br/>Technical Implementation"]
+    G2 --> H
+    G3 --> H
+    
+    H --> H1["📋 Phase 1: Data Processing<br/>Treats code like data"]
+    
+    H1 --> H2["🏗️ Phase 2: Database Creation<br/>Builds a CodeQL database<br/>from source code"]
+    
+    H2 --> H3["🔍 Phase 3: Query Execution<br/>Runs queries to detect<br/>vulnerabilities"]
+    
+    H3 --> H4["📊 Phase 4: Results Display<br/>Shows query results<br/>as scanning alerts"]
+    
+       
+    %% Define color classes for different sections
+    classDef overview fill:#e3f2fd,stroke:#1976d2,stroke-width:4px,color:#000,font-size:14px
+    classDef mainStep fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px,color:#000,font-size:12px
+    classDef setupOption fill:#fff3e0,stroke:#f57c00,stroke-width:3px,color:#000,font-size:11px
+    classDef technical fill:#fce4ec,stroke:#c2185b,stroke-width:3px,color:#000,font-size:11px
+    classDef benefits fill:#e8f5e8,stroke:#388e3c,stroke-width:3px,color:#000,font-size:11px
+    classDef languages fill:#f1f8e9,stroke:#689f38,stroke-width:2px,color:#000,font-size:10px
+    
+    %% Apply classes to nodes
+    class A overview
+    class B,C,D,E,F mainStep
+    class G1,G2,G3 setupOption
+    class H,H1,H2,H3,H4 technical
+    class I,I1,I2,I3 benefits
+    class J,J1,J2,J3,J4,J5,J6,J7,J8 languages

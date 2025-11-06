@@ -1,0 +1,68 @@
+---
+title: CodeQL Security Scanning Flow
+---
+flowchart TD
+    %% Define the main flow with colorful nodes and icons
+    A["🧑‍💻 Developer<br/>Pushes Code or<br/>Creates Pull Request"] --> B["⚙️ GitHub Actions<br/>Triggers CodeQL<br/>Workflow"]
+    B --> C["🏗️ CodeQL Analysis<br/>Builds Code Database<br/>from Codebase"]
+    C --> D["🧠 Security Scanning<br/>Runs Queries to Detect<br/>Vulnerabilities & Code Issues"]
+    D --> E["🚨 Security Dashboard<br/>Scan Results & Alerts<br/>Appear in GitHub Security Tab"]
+    E --> F["🔍 Code Review<br/>Developer Reviews Alerts<br/>& Triages Issues"]
+    F --> G["🛠️ Bug Fixing<br/>Developer Fixes Code<br/>& Commits Changes"]
+    G --> H["✅ Re-scan Process<br/>Code Scanning Runs Again<br/>to Verify Fixes"]
+    H --> I["🎉 Issue Resolution<br/>Alerts Automatically<br/>Close if Resolved"]
+    
+    %% Add a feedback loop for continuous improvement
+    I --> A
+    
+    %% Add conditional branches for better flow understanding
+    F --> J{"🤔 Critical<br/>Issues<br/>Found?"}
+    J -->|"⚠️ Yes"| G
+    J -->|"✅ No"| K["📋 Document & Monitor<br/>for Future Reference"]
+    K --> A
+    
+    %% Add emergency path for critical vulnerabilities
+    E --> L{"🚨 Critical<br/>Security<br/>Vulnerability?"}
+    L -->|"🔴 Urgent"| M["🚫 Block Deployment<br/>Immediate Action Required"]
+    L -->|"🟡 Standard"| F
+    M --> G
+    
+    %% Define color classes for different types of nodes
+    classDef developer fill:#e1f5fe,stroke:#01579b,stroke-width:3px,color:#000
+    classDef automation fill:#f3e5f5,stroke:#4a148c,stroke-width:3px,color:#000
+    classDef analysis fill:#e8f5e8,stroke:#1b5e20,stroke-width:3px,color:#000
+    classDef security fill:#ffebee,stroke:#b71c1c,stroke-width:3px,color:#000
+    classDef review fill:#fff3e0,stroke:#e65100,stroke-width:3px,color:#000
+    classDef fixing fill:#e0f2f1,stroke:#004d40,stroke-width:3px,color:#000
+    classDef success fill:#f1f8e9,stroke:#33691e,stroke-width:3px,color:#000
+    classDef decision fill:#fce4ec,stroke:#880e4f,stroke-width:3px,color:#000
+    classDef critical fill:#ffcdd2,stroke:#d32f2f,stroke-width:4px,color:#000
+    
+    %% Apply classes to nodes
+    class A developer
+    class B automation
+    class C,D analysis
+    class E,L security
+    class F review
+    class G fixing
+    class H,I,K success
+    class J decision
+    class M critical
+    
+    %% Style the links with different colors and weights
+    linkStyle 0 stroke:#2196f3,stroke-width:3px
+    linkStyle 1 stroke:#9c27b0,stroke-width:3px
+    linkStyle 2 stroke:#4caf50,stroke-width:3px
+    linkStyle 3 stroke:#f44336,stroke-width:3px
+    linkStyle 4 stroke:#ff9800,stroke-width:3px
+    linkStyle 5 stroke:#00bcd4,stroke-width:3px
+    linkStyle 6 stroke:#8bc34a,stroke-width:3px
+    linkStyle 7 stroke:#cddc39,stroke-width:3px
+    linkStyle 8 stroke:#607d8b,stroke-width:2px,stroke-dasharray: 5 5
+    linkStyle 9 stroke:#ff5722,stroke-width:3px
+    linkStyle 10 stroke:#4caf50,stroke-width:3px
+    linkStyle 11 stroke:#2196f3,stroke-width:2px,stroke-dasharray: 5 5
+    linkStyle 12 stroke:#d32f2f,stroke-width:4px
+    linkStyle 13 stroke:#ff9800,stroke-width:3px
+    linkStyle 14 stroke:#f44336,stroke-width:4px
+    linkStyle 15 stroke:#00bcd4,stroke-width:3px
